@@ -1,5 +1,4 @@
 
-Swing SignUp Form Project
 The Swing SignUp Form project is a simple Java application that provides a user-friendly graphical interface for user registration and login. It utilizes the Swing library to create a graphical user interface (GUI) for the user to enter their details and access the application.
 
 Project Components
@@ -20,3 +19,4 @@ This project is open-source and available under the MIT License.
 
 Feedback and Contributions
 Feedback and contributions are welcome. If you encounter any issues or have suggestions for improvements, feel free to create a pull request or issue on the project's GitHub repository.
+ 
