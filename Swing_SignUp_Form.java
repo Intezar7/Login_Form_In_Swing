@@ -4,12 +4,13 @@ import java.awt.event.*;
 
 class Login extends JFrame implements ActionListener {
     Container c;
-    JLabel label1, label2;
+    JLabel label1, label2, label3;
     JTextField user;
     JPasswordField pass;
     JButton login, signup;
 
     public Login() {
+        c = getContentPane();
         prepareGUI();
         addActionEvent();
     }
@@ -18,35 +19,38 @@ class Login extends JFrame implements ActionListener {
         setTitle("Login Form");
         setSize(420, 420);
         setLocation(100, 100);
+        c.setBackground(Color.LIGHT_GRAY);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        c = getContentPane();
         c.setLayout(null);
 
         label1 = new JLabel("Username");
-        label1.setBounds(35, 50, 70, 30);
+        label1.setBounds(40, 50, 70, 30);
         label1.setFont(new Font("Arial", Font.BOLD, 12));
         c.add(label1);
-
-        label2 = new JLabel("Password");
-        label2.setBounds(35, 80, 70, 30);
-        label2.setFont(new Font("Arial", Font.BOLD, 12));
-        c.add(label2);
-
         user = new JTextField();
-        user.setBounds(105, 55, 90, 20);
+        user.setBounds(110, 55, 90, 20);
+        user.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         c.add(user);
 
+        label2 = new JLabel("Password");
+        label2.setBounds(40, 80, 70, 30);
+        label2.setFont(new Font("Arial", Font.BOLD, 12));
+        c.add(label2);
         pass = new JPasswordField();
-        pass.setBounds(105, 88, 90, 20);
+        pass.setBounds(110, 88, 90, 20);
+        pass.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         c.add(pass);
 
         login = new JButton("Login");
-        login.setBounds(75, 120, 70, 20);
+        login.setBounds(120, 120, 70, 20);
         login.setFont(new Font("Arial", Font.BOLD, 12));
         c.add(login);
 
+        label3 = new JLabel("Create your account");
+        label3.setBounds(30, 200, 200, 20);
+        c.add(label3);
         signup = new JButton("SignUp");
-        signup.setBounds(150, 120, 85, 20);
+        signup.setBounds(150, 200, 85, 20);
         signup.setFont(new Font("Arial", Font.BOLD, 12));
         c.add(signup);
         setVisible(true);
@@ -59,6 +63,7 @@ class Login extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if (e.getSource() == login) {
             if (user.getText().isEmpty() || new String(pass.getPassword()).isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please fill in all the details.", "Error",
@@ -86,6 +91,7 @@ class SignUp extends JFrame implements ActionListener {
     ButtonGroup genderGroup;
 
     public SignUp() {
+        container = getContentPane();
         prepareGUISignUp();
     }
 
@@ -93,8 +99,8 @@ class SignUp extends JFrame implements ActionListener {
         setTitle("Sign Up Form");
         setSize(420, 420);
         setLocation(100, 100);
+        container.setBackground(Color.LIGHT_GRAY);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        container = getContentPane();
         container.setLayout(null);
 
         label1 = new JLabel("Enter Name");
@@ -103,6 +109,7 @@ class SignUp extends JFrame implements ActionListener {
         container.add(label1);
         name = new JTextField();
         name.setBounds(160, 55, 120, 20);
+        name.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         container.add(name);
 
         label2 = new JLabel("Enter Password");
@@ -111,6 +118,7 @@ class SignUp extends JFrame implements ActionListener {
         container.add(label2);
         password = new JPasswordField();
         password.setBounds(160, 88, 120, 20);
+        password.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         container.add(password);
 
         label3 = new JLabel("Enter Phone Number");
@@ -120,6 +128,7 @@ class SignUp extends JFrame implements ActionListener {
         phoneNum = new JTextField();
         phoneNum.setBounds(160, 120, 120, 20);
         phoneNum.setFont(new Font("Arial", Font.BOLD, 12));
+        phoneNum.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         container.add(phoneNum);
 
         // Gender Radio Buttons
@@ -140,18 +149,18 @@ class SignUp extends JFrame implements ActionListener {
 
         // Create account button
         createAccount = new JButton("Create Account");
-        createAccount.setBounds(110, 190, 130, 20);
+        createAccount.setBounds(120, 190, 130, 20);
         createAccount.setFont(new Font("Arial", Font.BOLD, 12));
         container.add(createAccount);
 
         // Back to login
-        label4 = new JLabel("Already a user ? ");
-        label4.setBounds(80, 250, 180, 20);
+        label4 = new JLabel("Already have an account ? ");
+        label4.setBounds(30, 250, 200, 20);
         label4.setFont(new Font("Arial", Font.BOLD, 12));
         container.add(label4);
 
         loginbackButton = new JButton("Login");
-        loginbackButton.setBounds(180, 250, 65, 20);
+        loginbackButton.setBounds(183, 250, 75, 20);
         container.add(loginbackButton);
 
         // Action Listener
